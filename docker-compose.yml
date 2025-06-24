@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  transkribus_gomez:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: Max_letters
+    volumes:
+      - ./app:/app
+    working_dir: /app
+    command: tail -f /dev/null
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TRANSKRIBUS_API_URL=https://transkribus.eu/TrpServer/rest
+      - TRANSKRIBUS_EMAIL=kevinmajim01@gmail.com
+      - TRANSKRIBUS_PASSWORD=Alucard1*2
+    restart: unless-stopped
